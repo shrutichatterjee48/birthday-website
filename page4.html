@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Forever Yours</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fdeff1, #f9f3f8);
+      color: #6b2e57;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      animation: fadeIn 2s ease;
+    }
+
+    p {
+      font-size: 1.1rem;
+      max-width: 85%;
+      margin: 10px auto 30px;
+      animation: fadeIn 2.5s ease;
+    }
+
+    .love-btn {
+      background-color: #a43d6b;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-size: 1rem;
+      cursor: pointer;
+      animation: pulse 2s infinite;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .hearts {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      transform: rotate(45deg);
+      animation: floatUp 10s infinite ease-in;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes floatUp {
+      0% {
+        bottom: -30px;
+        opacity: 0;
+      }
+      50% {
+        opacity: 0.7;
+      }
+      100% {
+        bottom: 100%;
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hearts">
+    <!-- Generate 20 floating hearts randomly -->
+    <script>
+      for(let i = 0; i < 20; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.style.left = `${Math.random() * 100}%`;
+        heart.style.animationDelay = `${Math.random() * 5}s`;
+        heart.style.animationDuration = `${8 + Math.random() * 5}s`;
+        document.currentScript.parentElement.appendChild(heart);
+      }
+    </script>
+  </div>
+
+  <h1>Happy Birthday Again, Butu! </h1>
+  <p>Every memory, every smile, every message — all of it leads to one thing: <br><strong>Your sonaai will always love you endlessly.</strong></p>
+  <button class="love-btn" onclick="goToNextPage()"> Love You </button>
+<script>
+    function goToNextPage() {
+    window.location.href = 'index.html'; // Update this URL as needed
+  }
+</script>
+</body>
+</html>

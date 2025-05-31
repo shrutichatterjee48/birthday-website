@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Happy Birthday 💖</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        html{
+            margin: 0;
+            padding: 0;
+            overflow: hidden !important;
+            /* hides horizontal scroll */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #d6c1f0, #f9e6f7, #d4f0e7);
+            color: #3a2c4a;
+            height: 100vh;
+            overflow: hidden !important;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            max-height: 100vh;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin: 0;
+            z-index: 10;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn {
+            background: #9c6ede;
+            border: none;
+            padding: 1rem 2.5rem;
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: white;
+            border-radius: 40px;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(156, 110, 222, 0.6);
+            transition: 0.3s ease;
+            margin-top: 2rem;
+            z-index: 10;
+        }
+
+        .btn:hover {
+            background-color: #7b52cc;
+            box-shadow: 0 8px 28px rgba(123, 82, 204, 0.8);
+        }
+
+        .photo-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .photo-container img {
+            position: absolute;
+            width: 130px;
+            border-radius: 20px;
+            /* box-shadow: 0 10px 25px rgba(0,0,0,0.15); */
+            object-fit: contain;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        .slide-left {
+            animation: slideInLeft 1s ease forwards, floatUpDown 4s ease-in-out 1s infinite;
+        }
+
+        .slide-right {
+            animation: slideInRight 1s ease forwards, floatUpDown 4s ease-in-out 1s infinite;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-150px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(150px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes floatUpDown {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* Positioning of photos: Top and bottom */
+        #photo1 {
+            top: 25%;
+            left: -2%;
+            animation-delay: 0.2s, 1.2s;
+        }
+
+        #photo2 {
+            top: 10%;
+            right: -4%;
+            animation-delay: 0.4s, 1.4s;
+        }
+
+        #photo3 {
+            bottom: 10%;
+            left: 20%;
+            animation-delay: 0.6s, 1.6s;
+        }
+
+        #photo4 {
+            bottom: -2%;
+            left: 0%;
+            animation-delay: 0.8s, 1.8s;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .photo-container img {
+                width: 60vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <audio id="bg-music" src="Co2.mp3"></audio> -->
+
+<!-- <button id="play-btn" style="
+  position: fixed;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background-color: #ff7f8b;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  display: none;
+  z-index: 1000;
+  cursor: pointer;
+">
+  🎵 Tap to Play
+</button> -->
+    <div class="photo-container">
+        <!-- <img id="photo1" class="slide-left" src="" alt="Photo 1" /> -->
+        <img id="photo2" class="slide-right" src="images\Picsart_25-05-31_14-01-32-454.png" alt="Photo 2" />
+        <!-- <img id="photo3" class="slide-left" src="https://via.placeholder.com/300x400?text=Photo+3" alt="Photo 3" /> -->
+        <img id="photo4" class="slide-left" src="images\Picsart_25-05-31_12-56-49-769.png" alt="Photo 4" />
+    </div>
+
+    <h1> Happy Birthday, Babaaiii! 🎀</h1>
+    <button class="btn" onclick="nextPage()">Tap to Begin</button>
+
+    <script>
+        function nextPage() {
+            window.location.href = "page2.html";
+        }
+
+
+
+        const music = document.getElementById('bg-music');
+  const playBtn = document.getElementById('play-btn');
+
+  // === Customize the music segment here ===
+  const startTime = 0; // seconds
+  const endTime = 52;   // seconds
+  // ========================================
+
+  music.currentTime = startTime;
+
+  // Try to autoplay
+  music.play().then(() => {
+    console.log('Music started automatically!');
+  }).catch(() => {
+    // Show button if autoplay is blocked
+    playBtn.style.display = 'block';
+  });
+
+  // If user taps the play button
+  playBtn.addEventListener('click', () => {
+    music.currentTime = startTime;
+    music.play();
+    playBtn.style.display = 'none';
+  });
+
+  // Stop the music at end time
+  music.addEventListener('timeupdate', () => {
+    if (music.currentTime >= endTime) {
+      music.pause();
+    }
+  });
+    </script>
+</body>
+
+</html>

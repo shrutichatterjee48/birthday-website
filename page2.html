@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Always Close</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #fdeff1, #f9f3f8);
+      font-family: 'Poppins', sans-serif;
+      color: #6b2e57;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    h2 {
+      font-weight: 600;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeInUp 1.8s forwards;
+    }
+
+    p {
+      font-weight: 400;
+      font-size: 1.1rem;
+      max-width: 350px;
+      margin: 0 auto 2rem;
+      color: #8a4b7a;
+      opacity: 0;
+      animation: fadeInUp 2.5s forwards;
+      animation-delay: 0.5s;
+      line-height: 1.5;
+    }
+
+    button {
+      background-color: #a43d6b;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 25px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      font-weight: 600;
+      box-shadow: 0 5px 15px rgba(164, 61, 107, 0.4);
+      opacity: 0;
+      animation: fadeInUp 3.5s forwards;
+      animation-delay: 1.1s;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #7f2e56;
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #a43d6b;
+      clip-path: polygon(
+        50% 0%, 61% 14%, 75% 14%, 85% 27%, 85% 45%, 72% 62%, 50% 80%, 28% 62%, 15% 45%, 15% 27%, 25% 14%, 39% 14%
+      );
+      opacity: 0.15;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+    }
+
+    .heart:nth-child(1) {
+      top: 10%;
+      left: 15%;
+      animation: floatUpDown 6s infinite;
+      animation-delay: 0s;
+      width: 22px;
+      height: 22px;
+      opacity: 0.2;
+    }
+    .heart:nth-child(2) {
+      top: 50%;
+      left: 25%;
+      animation: floatUpDown 8s infinite;
+      animation-delay: 2s;
+      width: 18px;
+      height: 18px;
+      opacity: 0.12;
+    }
+    .heart:nth-child(3) {
+      top: 80%;
+      left: 70%;
+      animation: floatUpDown 7s infinite;
+      animation-delay: 4s;
+      width: 25px;
+      height: 25px;
+      opacity: 0.18;
+    }
+    .heart:nth-child(4) {
+      top: 40%;
+      left: 80%;
+      animation: floatUpDown 5s infinite;
+      animation-delay: 1s;
+      width: 20px;
+      height: 20px;
+      opacity: 0.15;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatUpDown {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+
+  <h2>No matter the miles between us, my heart is always with you.</h2>
+  <p>Counting down the days until we’re together again.</p>
+
+  <button onclick="nextPage()">Keep going </button>
+
+  <script>
+    function nextPage() {
+      window.location.href = "page3.html";
+    }
+  </script>
+</body>
+</html>
